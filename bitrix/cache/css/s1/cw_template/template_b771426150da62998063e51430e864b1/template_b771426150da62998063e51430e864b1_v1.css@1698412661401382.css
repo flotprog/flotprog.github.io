@@ -26197,6 +26197,7 @@ table.form-table td {
 @media (max-width: 991px)  {
     .slider__item-text{
         max-width: 100%;
+        width: 100%;
     }
 }
 
