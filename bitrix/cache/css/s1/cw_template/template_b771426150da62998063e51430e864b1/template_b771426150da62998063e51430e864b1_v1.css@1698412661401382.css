@@ -26194,6 +26194,12 @@ table.form-table td {
     background-image: url(../../../../../../local/templates/cw_template/components/bitrix/form.result.new/cw_simple_form_1/images/icon_warn.gif);
 }
 
+@media (max-width: 991px)  {
+    .slider__item-text{
+        max-width: 100%;
+    }
+}
+
 /* End */
 /* /local/templates/cw_template/css/slick.css?16684356541854 */
 /* /local/templates/cw_template/css/swiper.min.css?166843565419811 */
