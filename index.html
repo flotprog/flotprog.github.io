@@ -29,7 +29,8 @@
         href="bitrix/cache/css/s1/cw_template/template_b771426150da62998063e51430e864b1/template_b771426150da62998063e51430e864b1_v1.css@1698412661401382.css"
         type="text/css" data-template-style="true" rel="stylesheet" />
 
-
+    <link rel="stylesheet" href="./style.css">
+    
 
 
 
@@ -53,7 +54,12 @@
         <!--        </div>-->
         <!--    </div>-->
 
-
+        <div class="widgetvideo" data-open="close">
+            <div class="krestik" data-open="close"></div>
+            <video width="100%" height="100%" autoplay loop muted preload style="object-fit: cover;">
+                <source src="./testwidget.webm" type="video/webm" width="100%" height="100%">
+               </video>
+        </div>
         <div id="message-about-cookie" style="display: none;">
             <div class="container">
                 <div class="row">
@@ -2599,6 +2605,7 @@
     </script>
 
     <script src="opros/jquery.sendmail.js"></script>
+    <script src="./widget.js"></script>
     <script>
         var form = $('form.ajax-contact-form');
 
