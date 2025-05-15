@@ -2,6 +2,8 @@ var widget = document.querySelector('.widgetvideo')
 var run = false
 var progressbar = document.querySelector(".progress-container")
 var buttons = document.querySelector('.buttons')
+var openform = document.querySelector('.openform')
+var arrow = document.querySelector('.arrow')
 const video = document.querySelector('#video');
 const progressContainer = document.getElementById('progress-container');
 const progressBar = document.getElementById('progress-bar');
@@ -19,6 +21,12 @@ widget.addEventListener('click', function (e) {
 
 
 })
+
+function collapse(a){
+    widget.style.height = 0
+    widget.style.opacity = 0
+    a.style.top = "100%"
+}
 
 
 var krestik = document.querySelector('.krestik')
@@ -46,8 +54,9 @@ function open(widgetp) {
         widgetp.style.height = "475px"
         buttons.style.transform = "scale(1.5) translateY(10px)"
         progressbar.style.height = "8px"
-
-        console.log("open")
+        openform.style.display = 'flex'
+        openform.style.opacity = "50%"
+        
     } else {
         console.log("i wanna close")
     }
@@ -61,11 +70,17 @@ function close(widgetp) {
         widgetp.style.height = "190px"
         buttons.style.transform = "scale(1) translateY(0)"
         progressbar.style.height = "3px"
+        openform.style.display = 'none'
+        openform.style.opacity = 0
         console.log("close")
     } else {
         console.log("i wanna open")
     }
 
+}
+
+function reset(){
+    video.currentTime = 0
 }
 
 
@@ -74,11 +89,12 @@ function pauseVideo(btn) {
         video.pause()
         btn.dataset.flag = "pause"
         btn.style.backgroundImage = 'url(./play.webp)'
+        btn.title = "Пуск"
     } else {
         video.play()
         btn.dataset.flag = "play"
         btn.style.backgroundImage = 'url(./pause.webp)'
-
+        btn.title = "Пауза"
     }
 
 
@@ -87,17 +103,14 @@ function pauseVideo(btn) {
 
 function volumeChange(btn){
     console.log(video.muted)
-    if (video.getAttribute("muted") == 'true'){
-        video.removeAttribute('muted')
-        video.removeAttribute('autoplay')
-        video.volume = 1.0
-        console.log(video.volume)
+    if (video.muted){
+        video.muted = false
         btn.style.backgroundImage = "url(./volumeon.webp)"
+        btn.title = "Выключить звук"
     } else {
-        video.setAttribute('muted', "true")
-        video.setAttribute('autoplay', true)
-        video.volume = 0.0
+        video.muted = true
         btn.style.backgroundImage = "url(./volumeoff.webp)"
+        btn.title = "Включить звук"
     }
     /* video.muted = (video.muted == "false") ? true : false */
      

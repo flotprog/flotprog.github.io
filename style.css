@@ -1,3 +1,26 @@
+.widgetcontainer{
+    
+    width: 130px;
+    height: 200px;
+    position: fixed;
+    bottom: 50px;
+    right:50px;
+    z-index: 9999;
+}
+
+/*.arrow{
+
+    position: absolute;
+    z-index: 99999;
+    top:-7%;
+    border: 1px solid rgba(255, 255, 255, 0.552);
+    width: 30px;
+    left:40%;
+    height: 20px;
+}*/
+
+
+
 .widgetvideo{
     display: block;
     position: fixed;
@@ -13,6 +36,12 @@
     overflow: hidden;
 }
 
+.widgetvideoleft{
+    bottom: 50px;
+    right:0;
+    left: 50px;
+}
+
 .widgetvideo:hover{
 
     border: 2px solid #00f891ed;
@@ -24,7 +53,8 @@
 
 .krestik,
 .pause,
-.volume{
+.volume,
+.reset{
     border-radius: 50%;
     background-image: url(./krestik.svg);
     background-position: center;
@@ -52,6 +82,12 @@
     background-size: 10px 10px;
 }
 
+.reset{
+    top:72px;
+    background-image: url(./reset-svgrepo-com.svg);
+    background-size: 10px 10px;
+}
+
 #video::-webkit-media-controls{
     position: absolute;
     top:0;
@@ -59,7 +95,8 @@
 
 .krestik:hover,
 .pause:hover,
-.volume:hover{
+.volume:hover,
+.reset:hover{
     transform: scale(1.1);
 }
 
@@ -115,4 +152,25 @@
     height: 100%;
     width: 0;
     background: #009355ed;
+}
+
+.openform{
+    position: absolute;
+    display: none;
+    z-index: 9999999;
+    width: 80%;
+    height: 10%;
+    color: white;
+    background-color: #e06627;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+    border-radius: 20px;
+    bottom: 5%;
+    left: 10%;
+}
+
+.openform:hover{
+    opacity: 100;
 }

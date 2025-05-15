@@ -55,24 +55,68 @@
         <!--    </div>-->
 
 
-
-        <div class="widgetvideo" data-open="close">
+        <div class="widgetcontainer">
+           <!-- <svg title="Свернуть" class="arrow" onclick="collapse(this)" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512" fill="none">
+                <path id="n1" d="M122 55L253.379 186.379C254.55 187.55 256.45 187.55 257.621 186.379L389 55" stroke="white" stroke-width="10" stroke-linecap="round"/>
+                <path id="n2" d="M122 188.5L253.379 319.879C254.55 321.05 256.45 321.05 257.621 319.879L389 188.5" stroke="white" stroke-width="10" stroke-linecap="round"/>
+                <path id="n3" d="M122 322L253.379 453.379C254.55 454.55 256.45 454.55 257.621 453.379L389 322" stroke="white" stroke-width="10" stroke-linecap="round"/>
+                
+                <style>
+                
+                #n1{
+                animation-name: a1;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                }
+                
+                #n2{
+                animation-name: a1;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-delay: 1s;
+                }
+                
+                #n3{
+                animation-name: a1;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-delay: 2s;
+                
+                }
+                
+                @keyframes a1 {
+                0% {opacity:1}
+                50% {opacity:0}
+                70% {opacity:1}
+                100% {opacity:1}
+                }
+                
+                </style>
+                </svg>-->
+            <div class="widgetvideo" data-open="close">
             
             <div class="progress-container" id="progress-container">
                 <div class="progress-bar" id="progress-bar"></div>
             </div>
             <div class="buttons">
-                <div class="krestik" data-open="close"></div>
-                <div class="pause" onclick="pauseVideo(this)" data-flag="play"></div>
-                <div class="volume" onclick="volumeChange(this)" data-flag="off"></div>
-                <div class="reset"></div>
+                <div class="krestik" data-open="close" title="Закрыть"></div>
+                <div class="pause" onclick="pauseVideo(this)" data-flag="play" title="Пауза"></div>
+                <div class="volume" onclick="volumeChange(this)" data-flag="off" title = "Включить звук"></div>
+                <div class="reset" title="Сначала" onclick="reset()"></div>
             </div>
             
             
-            <video id="video" width="100%" height="100%" loop="" autoplay="" playsinline="" preload="auto" controlslist="nodownload" style="object-fit: cover;">
-                <source src="./sample-5s.webm" type="video/webm" width="100%" height="100%">
-               </video>
+            <video id="video" width="100%" height="100%" loop="" autoplay="" muted="true" preload="auto" controlslist="nodownload" style="object-fit: cover;">
+                <source src="./testwidget.webm" type="video/webm" width="100%" height="100%">
+            </video>
+
+            <div class="openform" onmousemove="this.style.opacity = '90%'" onmouseleave="this.style.opacity = '50%'">Подробнее</div>
         </div>
+        </div>
+        
         <div id="message-about-cookie" style="display: none;">
             <div class="container">
                 <div class="row">
@@ -402,9 +446,9 @@
                     <div class="header__slider">
                         <div>
                             <div class="content container">
-                                <div class="title slider__item-text wow fadeInLeft" data-wow-delay="2s">
+                                <a href="./products/ochistnye-sooruzheniya/napornyy-filtr/index.html" class="title slider__item-text wow fadeInLeft" data-wow-delay="2s">
                                     Напорные фильтры FloTenk-NF <span>Емкости и резервуары<br>
-                                        под давлением</span> </div>
+                                        под давлением</span> </a>
                                 <a class="btn-header wow fadeInLeft" data-wow-delay="2s"
                                     href="products/index.html">Выбрать продукцию</a>
                             </div>

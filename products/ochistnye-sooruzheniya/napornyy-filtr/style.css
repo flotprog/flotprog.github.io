@@ -1,0 +1,124 @@
+.widgetvideo{
+    display: block;
+    position: fixed;
+    border: 2px solid #009355ed;
+    border-radius: 15px;
+    width: 125px;
+    height: 190px;
+    z-index: 9999;
+    bottom: 50px;
+    right:50px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+.widgetvideoleft{
+    bottom: 50px;
+    right:0;
+    left: 50px;
+}
+
+.widgetvideo:hover{
+
+    border: 2px solid #00f891ed;
+}
+
+.widgetvideo video{
+    border-radius: 13px;
+}
+
+.krestik,
+.pause,
+.volume{
+    border-radius: 50%;
+    background-image: url(./krestik.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+
+    width: 15px;
+    height: 15px;
+    
+    transition: all 0.7s ease;
+    background-color: rgba(0, 0, 0, 0.252);
+    z-index: 999;
+}
+
+.pause{
+    top:24px;
+    background-image: url(./pause.webp);
+    background-size: 10px 10px;
+}
+
+.volume{
+    top:48px;
+    background-image: url(./volumeoff.webp);
+    background-size: 10px 10px;
+}
+
+#video::-webkit-media-controls{
+    position: absolute;
+    top:0;
+}
+
+.krestik:hover,
+.pause:hover,
+.volume:hover{
+    transform: scale(1.1);
+}
+
+
+
+.buttons{
+    position: absolute;
+    display: block;
+    height: 65px;
+    width: 17px;
+    top:5%;
+    right:5%;
+
+    opacity: 0%;
+    transition: all 0.5s ease;
+    z-index: 9999;
+}
+
+.widgetvideo:hover .buttons{
+    opacity: 100%;
+}
+
+.widgetvideo:hover .progress-widget{
+    opacity: 100%;
+}
+
+
+.progress-widget{
+    position: absolute;
+    z-index: 999;
+    top:-5px;
+    width: 80%;
+    left:10%;
+    height: 10px;
+
+    transition: all 0.5s ease;
+    
+}
+
+
+.progress-container {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #ffffff51;
+    cursor: pointer;
+    z-index: 999999;
+    
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: #009355ed;
+}

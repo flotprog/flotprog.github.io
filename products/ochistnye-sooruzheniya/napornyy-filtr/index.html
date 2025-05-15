@@ -19,7 +19,7 @@
 <link href="../../../bitrix/js/main/popup/dist/main.popup.bundle.min.css@169841258526598.css" type="text/css"  rel="stylesheet" />
 <link href="../../../bitrix/cache/css/s1/cw_template/page_63c54cd14ef935a68e96bfefe5edff02/page_63c54cd14ef935a68e96bfefe5edff02_v1.css@169841266736210.css" type="text/css"  rel="stylesheet" />
 <link href="../../../bitrix/cache/css/s1/cw_template/template_b771426150da62998063e51430e864b1/template_b771426150da62998063e51430e864b1_v1.css@1698412661401382.css" type="text/css"  data-template-style="true" rel="stylesheet" />
-
+<link rel="stylesheet" href="./style.css">
 
 
 
@@ -288,6 +288,24 @@
                                         <!--                -->                                        <!--                -->                                        <!--                -->                    <!--                -->                                                                                                    
                 </div>
             </div>
+
+            <div class="widgetvideo widgetvideoleft" data-open="close">
+            
+                <div class="progress-container" id="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="buttons">
+                    <div class="krestik" data-open="close"></div>
+                    <div class="pause" onclick="pauseVideo(this)" data-flag="play"></div>
+                    <div class="volume" onclick="volumeChange(this)" data-flag="off"></div>
+                    <div class="reset"></div>
+                </div>
+                
+                
+                <video id="video" width="100%" height="100%" loop="" autoplay="" muted="true" preload="auto" controlslist="nodownload" style="object-fit: cover;">
+                    <source src="./testwidget.webm" type="video/webm" width="100%" height="100%">
+                </video>
+            </div>
             <div class="col col-tab-10">
                 <div class="tab-content" id="v-pills-tabContent">
                                             <div class="product__tab tab-pane fade active show" id="v-pills-1" role="tabpanel"
@@ -297,7 +315,7 @@
                                 <div class=" col-lg-7 col-md-12">
 
                                     
-                                                                            <div class="product__text cw_text_hid">
+                                                                            <div class="product__text">
                                             На каждом промышленном предприятии существуют технологические процессы, которые требуют использования большого количества воды. Водоснабжению, водоотведению и качеству воды необходимо уделять много внимания: от этого часто зависит качество продукции и производительность предприятия. Достичь требуемых химических и экологических стандартов воды можно только одним способом – установкой эффективных систем фильтрации. Наиболее оптимальный вариант – это промышленные напорные фильтры.<br />
 <br />
 Напорный фильтр представляет собой цилиндрический корпус из стеклопластика с верхним и нижним сферическими днищами. Для подключения технологических трубопроводов предусмотрены горловины, которые находятся сверху и снизу. Подсоединение верхнего и нижнего коллекторов к горловинам – клеевое &#40;PVC-U&#41;.<br />
@@ -310,7 +328,7 @@
 Применение передовых технологий и уникальные конструкторские решения позволяют АО &quot;Флотенк&quot; выпускать промышленные напорные фильтры, рассчитанные на рабочее давление до 4 бар. Фильтры надежны в работе и удобны в обслуживании.<br />
 <br />
 Необходимый объем и тип загрузки напорного фильтра, а также диаметры подключаемых трубопроводов рассчитываются специалистами с учетом индивидуальных особенностей каждого предприятия.                                        </div>
-                                        <a class="cw_readmore_text" href="index.html#"> описание</a>
+                                        <!--<a class="cw_readmore_text" href="index.html#"> описание</a>-->
                                     
 
                                 </div>
@@ -2193,5 +2211,6 @@ else
         webvisor: true
     });
 </script>
+<script src="./widget.js"></script>
 </body>
 </html>
