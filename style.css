@@ -10,6 +10,7 @@
     right:50px;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
+    overflow: hidden;
 }
 
 .widgetvideo:hover{
@@ -21,16 +22,16 @@
     border-radius: 13px;
 }
 
-.krestik{
+.krestik,
+.pause,
+.volume{
     border-radius: 50%;
     background-image: url(./krestik.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0;
     position: absolute;
-    top:8px;
-    right: 8px;
+
     width: 15px;
     height: 15px;
     
@@ -39,12 +40,73 @@
     z-index: 999;
 }
 
-.krestik:hover{
+.pause{
+    top:24px;
+    background-image: url(./play.webp);
+    background-size: 5px 5px;
+}
+
+.volume{
+    top:48px;
+    background-image: url(./volumeon.webp);
+    background-size: 10px 10px;
+}
+
+.krestik:hover,
+.pause:hover,
+.volume:hover{
     transform: scale(1.1);
 }
 
-.widgetvideo:hover .krestik{
+
+
+.buttons{
+    position: absolute;
+    display: block;
+    height: 65px;
+    width: 17px;
+    top:5%;
+    right:5%;
     
+    opacity: 0%;
+    transition: all 0.5s ease;
+    z-index: 9999;
+}
+
+.widgetvideo:hover .buttons{
     opacity: 100%;
 }
 
+.widgetvideo:hover .progress-widget{
+    opacity: 100%;
+}
+
+
+.progress-widget{
+    position: absolute;
+    z-index: 999;
+    top:-5px;
+    width: 80%;
+    left:10%;
+    height: 10px;
+
+    transition: all 0.5s ease;
+    
+}
+
+
+.progress-container {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #ffffff51;
+    cursor: pointer;
+    z-index: 999999;
+    
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: #009355ed;
+}
