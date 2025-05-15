@@ -14,7 +14,7 @@
 }
 
 .widgetvideo:hover{
-    transform: scale(1.1);
+
     border: 2px solid #00f891ed;
 }
 
@@ -67,7 +67,7 @@
     width: 17px;
     top:5%;
     right:5%;
-    
+
     opacity: 0%;
     transition: all 0.5s ease;
     z-index: 9999;
@@ -96,6 +96,7 @@
 
 
 .progress-container {
+    box-sizing: border-box;
     position: absolute;
     width: 100%;
     height: 3px;

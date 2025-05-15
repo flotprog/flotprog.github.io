@@ -1,14 +1,16 @@
 var widget = document.querySelector('.widgetvideo')
 var run = false
+var progressbar = document.querySelector(".progress-container")
+var buttons = document.querySelector('.buttons')
 
 
 widget.addEventListener('click', function (e) {
-    if (run == false){
+    if (run == false) {
         open(this)
         run = true
     }
     console.log(run)
-    
+
 
 })
 
@@ -16,16 +18,16 @@ widget.addEventListener('click', function (e) {
 var krestik = document.querySelector('.krestik')
 
 krestik.addEventListener('click', function () {
-    if (run == true){
+    if (run == true) {
         close(widget)
         setTimeout(() => {
             run = false
         }, 1000)
-        
+
     }
     /* run = false */
     console.log(run)
-    
+
 
 
 })
@@ -34,9 +36,12 @@ krestik.addEventListener('click', function () {
 function open(widgetp) {
     if (widgetp.dataset.open == 'close') {
         widgetp.dataset.open = "open"
-        widgetp.style.transform = "scale(2.5)"
-        widgetp.style.bottom = "170px"
-        widgetp.style.right = "150px"
+        widgetp.style.width = "312.5px"
+        widgetp.style.height = "475px"
+        buttons.style.transform = "scale(1.5) translateY(10px)"
+        progressbar.style.height = "8px"
+        /* widgetp.style.bottom = "170px"
+        widgetp.style.right = "150px" */
         console.log("open")
     } else {
         console.log("i wanna close")
@@ -47,9 +52,10 @@ function open(widgetp) {
 function close(widgetp) {
     if (widgetp.dataset.open == "open") {
         widgetp.dataset.open = "close"
-        widgetp.style.transform = "scale(1)"
-        widgetp.style.bottom = "50px"
-        widgetp.style.right = "50px"
+        widgetp.style.width = "125px"
+        widgetp.style.height = "190px"
+        buttons.style.transform = "scale(1) translateY(0)"
+        progressbar.style.height = "3px"
         console.log("close")
     } else {
         console.log("i wanna open")
@@ -74,10 +80,36 @@ video.addEventListener('timeupdate', () => {
     progressBar.style.width = percentage + '%';
 });
 
-// Перемотка видео при клике на прогресс-бар
+
 progressContainer.addEventListener('click', (event) => {
+    updateVideoTime(event);
+});
+
+// Плавная перемотка при удерживании левой кнопки мыши
+let isDragging = false;
+
+progressContainer.addEventListener('mousedown', (event) => {
+    isDragging = true;
+    updateVideoTime(event);
+});
+
+progressContainer.addEventListener('mousemove', (event) => {
+    if (isDragging) {
+        updateVideoTime(event);
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+});
+
+// Перемотка видео при клике на прогресс-бар
+function updateVideoTime(event) {
     const rect = progressContainer.getBoundingClientRect();
     const clickPosition = event.clientX - rect.left;
     const percentage = clickPosition / progressContainer.offsetWidth;
     video.currentTime = percentage * video.duration;
-});
+}
+/* progressContainer.addEventListener('click', (event) => {
+
+}); */
