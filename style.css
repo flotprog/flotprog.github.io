@@ -42,14 +42,19 @@
 
 .pause{
     top:24px;
-    background-image: url(./play.webp);
-    background-size: 5px 5px;
+    background-image: url(./pause.webp);
+    background-size: 10px 10px;
 }
 
 .volume{
     top:48px;
-    background-image: url(./volumeon.webp);
+    background-image: url(./volumeoff.webp);
     background-size: 10px 10px;
+}
+
+#video::-webkit-media-controls{
+    position: absolute;
+    top:0;
 }
 
 .krestik:hover,

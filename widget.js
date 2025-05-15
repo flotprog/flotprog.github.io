@@ -2,6 +2,12 @@ var widget = document.querySelector('.widgetvideo')
 var run = false
 var progressbar = document.querySelector(".progress-container")
 var buttons = document.querySelector('.buttons')
+const video = document.querySelector('#video');
+const progressContainer = document.getElementById('progress-container');
+const progressBar = document.getElementById('progress-bar');
+
+
+
 
 
 widget.addEventListener('click', function (e) {
@@ -40,8 +46,7 @@ function open(widgetp) {
         widgetp.style.height = "475px"
         buttons.style.transform = "scale(1.5) translateY(10px)"
         progressbar.style.height = "8px"
-        /* widgetp.style.bottom = "170px"
-        widgetp.style.right = "150px" */
+
         console.log("open")
     } else {
         console.log("i wanna close")
@@ -64,15 +69,41 @@ function close(widgetp) {
 }
 
 
+function pauseVideo(btn) {
+    if (btn.dataset.flag == "play") {
+        video.pause()
+        btn.dataset.flag = "pause"
+        btn.style.backgroundImage = 'url(./play.webp)'
+    } else {
+        video.play()
+        btn.dataset.flag = "play"
+        btn.style.backgroundImage = 'url(./pause.webp)'
+
+    }
 
 
+}
 
-/*  */
+
+function volumeChange(btn){
+    console.log(video.muted)
+    if (video.getAttribute("muted") == 'true'){
+        video.removeAttribute('muted')
+        video.removeAttribute('autoplay')
+        video.volume = 1.0
+        console.log(video.volume)
+        btn.style.backgroundImage = "url(./volumeon.webp)"
+    } else {
+        video.setAttribute('muted', "true")
+        video.setAttribute('autoplay', true)
+        video.volume = 0.0
+        btn.style.backgroundImage = "url(./volumeoff.webp)"
+    }
+    /* video.muted = (video.muted == "false") ? true : false */
+     
+}
 
 
-const video = document.getElementById('video');
-const progressContainer = document.getElementById('progress-container');
-const progressBar = document.getElementById('progress-bar');
 
 // Обновление прогресс-бара
 video.addEventListener('timeupdate', () => {
@@ -96,12 +127,12 @@ progressContainer.addEventListener('mousedown', (event) => {
 progressContainer.addEventListener('mousemove', (event) => {
     if (isDragging) {
         updateVideoTime(event);
-        
-            const newWidth = event.clientX - progressBar.getBoundingClientRect().left;
-            // Минимальная ширина
-                progressBar.style.width = newWidth + 'px';
-            
-        
+
+        const newWidth = event.clientX - progressBar.getBoundingClientRect().left;
+
+        progressBar.style.width = newWidth + 'px';
+
+
     }
 });
 
@@ -116,6 +147,3 @@ function updateVideoTime(event) {
     const percentage = clickPosition / progressContainer.offsetWidth;
     video.currentTime = percentage * video.duration;
 }
-/* progressContainer.addEventListener('click', (event) => {
-
-}); */
