@@ -96,6 +96,12 @@ progressContainer.addEventListener('mousedown', (event) => {
 progressContainer.addEventListener('mousemove', (event) => {
     if (isDragging) {
         updateVideoTime(event);
+        
+            const newWidth = event.clientX - progressBar.getBoundingClientRect().left;
+            // Минимальная ширина
+                progressBar.style.width = newWidth + 'px';
+            
+        
     }
 });
 
