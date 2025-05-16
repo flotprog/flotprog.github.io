@@ -56,8 +56,47 @@ krestik.addEventListener('click', function () {
 })
 
 
+const textOpacity = [
+    { opacity: "0" },
+    { opacity: "100%" },
+    
+  ];
+
+const textNoneOpacity = [
+    { opacity: "100%" },
+    { opacity: "0" },
+  ];
+  
+  const textTiming = {
+    duration: 2000,
+    iterations: 1,
+    fill: "forwards"
+  };
+  
+  const text = document.querySelector(".testText");
+  
+  video.addEventListener("timeupdate", () => {
+    
+    if (widget.style.width == '312.5px') {
+   
+    
+        if (video.currentTime >= 1.5 && video.currentTime <= 1.6){
+            text.animate(textOpacity, textTiming);
+           
+        } 
+        if (video.currentTime > 8 && video.currentTime <= 9){
+            text.animate(textNoneOpacity, textTiming);
+            
+        }}
+    
+  });
+
+
 function open(widgetp) {
+
+    
     if (widgetp.dataset.open == 'close') {
+        video.currentTime = 0
         arrow.style.opacity = '0';
         setTimeout(() => {
             widgetp.dataset.open = "open"
