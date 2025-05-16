@@ -177,7 +177,7 @@
 
 .arrow {
     position: absolute;
-    
+    cursor: pointer;
     background-color: rgba(0, 0, 0, 0.171);
     z-index: 99999;
     transition: all 0.5s ease-in-out;

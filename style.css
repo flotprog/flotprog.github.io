@@ -178,4 +178,5 @@
     left: -55%;
     transform: rotate(-90deg);
     width: 80%;
+    cursor: pointer;
 }
