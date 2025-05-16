@@ -3,7 +3,7 @@
     align-items: center;
     width: 130px;
     height: 200px;
-    position: absolute;
+    position: fixed;
     bottom: 2%;
     right: 2%;
     z-index: 9999;
