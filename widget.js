@@ -22,10 +22,19 @@ widget.addEventListener('click', function (e) {
 
 })
 
-function collapse(a){
-    widget.style.height = 0
-    widget.style.opacity = 0
-    a.style.top = "100%"
+var isWidgetVisible = true
+
+function collapse(a) {
+    if (isWidgetVisible) {
+        widget.style.transform = 'translateX(150%)'; // Скрываем виджет вправо
+        arrow.style.transform = 'translateX(150%) rotate(90deg) '; // Двигаем кнопку влево к границе экрана
+
+    } else {
+        widget.style.transform = 'translateX(0)'; // Показываем виджет
+        arrow.style.transform = 'translateX(0) rotate(-90deg) '; // Возвращаем кнопку на место
+
+    }
+    isWidgetVisible = !isWidgetVisible; // Переключаем состояние видимости
 }
 
 
@@ -49,14 +58,19 @@ krestik.addEventListener('click', function () {
 
 function open(widgetp) {
     if (widgetp.dataset.open == 'close') {
-        widgetp.dataset.open = "open"
-        widgetp.style.width = "312.5px"
-        widgetp.style.height = "475px"
-        buttons.style.transform = "scale(1.5) translateY(10px)"
-        progressbar.style.height = "8px"
-        openform.style.display = 'flex'
-        openform.style.opacity = "50%"
+        arrow.style.opacity = '0';
+        setTimeout(() => {
+            widgetp.dataset.open = "open"
+            widgetp.style.width = "312.5px"
+            widgetp.style.height = "475px"
+            buttons.style.transform = "scale(1.5) translateY(10px)"
+            progressbar.style.height = "8px"
+            openform.style.display = 'flex'
+            openform.style.opacity = "50%"
+        }, 500)
+
         
+
     } else {
         console.log("i wanna close")
     }
@@ -72,6 +86,10 @@ function close(widgetp) {
         progressbar.style.height = "3px"
         openform.style.display = 'none'
         openform.style.opacity = 0
+        setTimeout(() => {
+            arrow.style.opacity = '100%';
+        }, 1000)
+
         console.log("close")
     } else {
         console.log("i wanna open")
@@ -79,7 +97,7 @@ function close(widgetp) {
 
 }
 
-function reset(){
+function reset() {
     video.currentTime = 0
 }
 
@@ -101,9 +119,9 @@ function pauseVideo(btn) {
 }
 
 
-function volumeChange(btn){
+function volumeChange(btn) {
     console.log(video.muted)
-    if (video.muted){
+    if (video.muted) {
         video.muted = false
         btn.style.backgroundImage = "url(./volumeon.webp)"
         btn.title = "Выключить звук"
@@ -113,7 +131,7 @@ function volumeChange(btn){
         btn.title = "Включить звук"
     }
     /* video.muted = (video.muted == "false") ? true : false */
-     
+
 }
 
 
@@ -160,3 +178,5 @@ function updateVideoTime(event) {
     const percentage = clickPosition / progressContainer.offsetWidth;
     video.currentTime = percentage * video.duration;
 }
+
+

@@ -1,36 +1,59 @@
-.widgetvideo{
-    display: block;
+.widgetcontainer {
+    display: flex;
+    align-items: center;
+    width: 130px;
+    height: 200px;
     position: fixed;
+    bottom: 2%;
+    right: 2%;
+    z-index: 9999;
+    transform-origin: bottom right;
+}
+
+.widgetcontainerleft{
+    bottom: 1%;
+    right: 0;
+    left: 2%;
+}
+
+
+
+
+
+.widgetvideo {
+    display: block;
+    position: absolute;
     border: 2px solid #009355ed;
     border-radius: 15px;
     width: 125px;
     height: 190px;
     z-index: 9999;
-    bottom: 50px;
-    right:50px;
+    left: 0;
+    bottom: 0;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
     overflow: hidden;
 }
 
-.widgetvideoleft{
+.widgetvideoleft {
     bottom: 50px;
-    right:0;
+    right: 0;
     left: 50px;
 }
 
-.widgetvideo:hover{
+.widgetvideo:hover {
 
     border: 2px solid #00f891ed;
 }
 
-.widgetvideo video{
+.widgetvideo video {
     border-radius: 13px;
 }
 
 .krestik,
 .pause,
-.volume{
+.volume,
+.reset {
     border-radius: 50%;
     background-image: url(./krestik.svg);
     background-position: center;
@@ -40,69 +63,76 @@
 
     width: 15px;
     height: 15px;
-    
+
     transition: all 0.7s ease;
     background-color: rgba(0, 0, 0, 0.252);
     z-index: 999;
 }
 
-.pause{
-    top:24px;
+.pause {
+    top: 24px;
     background-image: url(./pause.webp);
     background-size: 10px 10px;
 }
 
-.volume{
-    top:48px;
+.volume {
+    top: 48px;
     background-image: url(./volumeoff.webp);
     background-size: 10px 10px;
 }
 
-#video::-webkit-media-controls{
+.reset {
+    top: 72px;
+    background-image: url(./reset-svgrepo-com.svg);
+    background-size: 10px 10px;
+}
+
+#video::-webkit-media-controls {
     position: absolute;
-    top:0;
+    top: 0;
 }
 
 .krestik:hover,
 .pause:hover,
-.volume:hover{
+.volume:hover,
+.reset:hover {
     transform: scale(1.1);
 }
 
 
 
-.buttons{
+.buttons {
     position: absolute;
     display: block;
     height: 65px;
     width: 17px;
-    top:5%;
-    right:5%;
+    top: 5%;
+    right: 5%;
 
     opacity: 0%;
     transition: all 0.5s ease;
     z-index: 9999;
 }
 
-.widgetvideo:hover .buttons{
+.widgetvideo:hover .buttons {
     opacity: 100%;
 }
 
-.widgetvideo:hover .progress-widget{
+.widgetvideo:hover .progress-widget {
     opacity: 100%;
 }
 
 
-.progress-widget{
+.progress-widget {
     position: absolute;
     z-index: 999;
-    top:-5px;
+    top: -5px;
     width: 80%;
-    left:10%;
+    left: 10%;
     height: 10px;
 
     transition: all 0.5s ease;
-    
+
 }
 
 
@@ -114,11 +144,44 @@
     background: #ffffff51;
     cursor: pointer;
     z-index: 999999;
-    
+
 }
 
 .progress-bar {
     height: 100%;
     width: 0;
     background: #009355ed;
+}
+
+.openform {
+    position: absolute;
+    display: none;
+    z-index: 9999999;
+    width: 80%;
+    height: 10%;
+    color: white;
+    background-color: #e06627;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+    border-radius: 20px;
+    bottom: 5%;
+    left: 10%;
+}
+
+.openform:hover {
+    opacity: 100;
+    color: white;
+}
+
+.arrow {
+    position: absolute;
+    
+    background-color: rgba(0, 0, 0, 0.171);
+    z-index: 99999;
+    transition: all 0.5s ease-in-out;
+    right: -55%;
+    transform: rotate(90deg);
+    width: 80%;
 }

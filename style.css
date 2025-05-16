@@ -1,60 +1,53 @@
-.widgetcontainer{
-    
+.widgetcontainer {
+    display: flex;
+    align-items: center;
     width: 130px;
     height: 200px;
-    position: fixed;
-    bottom: 50px;
-    right:50px;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
     z-index: 9999;
+    transform-origin: bottom right;
 }
 
-/*.arrow{
-
-    position: absolute;
-    z-index: 99999;
-    top:-7%;
-    border: 1px solid rgba(255, 255, 255, 0.552);
-    width: 30px;
-    left:40%;
-    height: 20px;
-}*/
 
 
 
-.widgetvideo{
+
+.widgetvideo {
     display: block;
-    position: fixed;
+    position: absolute;
     border: 2px solid #009355ed;
     border-radius: 15px;
     width: 125px;
     height: 190px;
     z-index: 9999;
-    bottom: 50px;
-    right:50px;
+    right: 0;
+    bottom: 0;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
     overflow: hidden;
 }
 
-.widgetvideoleft{
+.widgetvideoleft {
     bottom: 50px;
-    right:0;
+    right: 0;
     left: 50px;
 }
 
-.widgetvideo:hover{
+.widgetvideo:hover {
 
     border: 2px solid #00f891ed;
 }
 
-.widgetvideo video{
+.widgetvideo video {
     border-radius: 13px;
 }
 
 .krestik,
 .pause,
 .volume,
-.reset{
+.reset {
     border-radius: 50%;
     background-image: url(./krestik.svg);
     background-position: center;
@@ -64,76 +57,76 @@
 
     width: 15px;
     height: 15px;
-    
+
     transition: all 0.7s ease;
     background-color: rgba(0, 0, 0, 0.252);
     z-index: 999;
 }
 
-.pause{
-    top:24px;
+.pause {
+    top: 24px;
     background-image: url(./pause.webp);
     background-size: 10px 10px;
 }
 
-.volume{
-    top:48px;
+.volume {
+    top: 48px;
     background-image: url(./volumeoff.webp);
     background-size: 10px 10px;
 }
 
-.reset{
-    top:72px;
+.reset {
+    top: 72px;
     background-image: url(./reset-svgrepo-com.svg);
     background-size: 10px 10px;
 }
 
-#video::-webkit-media-controls{
+#video::-webkit-media-controls {
     position: absolute;
-    top:0;
+    top: 0;
 }
 
 .krestik:hover,
 .pause:hover,
 .volume:hover,
-.reset:hover{
+.reset:hover {
     transform: scale(1.1);
 }
 
 
 
-.buttons{
+.buttons {
     position: absolute;
     display: block;
     height: 65px;
     width: 17px;
-    top:5%;
-    right:5%;
+    top: 5%;
+    right: 5%;
 
     opacity: 0%;
     transition: all 0.5s ease;
     z-index: 9999;
 }
 
-.widgetvideo:hover .buttons{
+.widgetvideo:hover .buttons {
     opacity: 100%;
 }
 
-.widgetvideo:hover .progress-widget{
+.widgetvideo:hover .progress-widget {
     opacity: 100%;
 }
 
 
-.progress-widget{
+.progress-widget {
     position: absolute;
     z-index: 999;
-    top:-5px;
+    top: -5px;
     width: 80%;
-    left:10%;
+    left: 10%;
     height: 10px;
 
     transition: all 0.5s ease;
-    
+
 }
 
 
@@ -145,7 +138,7 @@
     background: #ffffff51;
     cursor: pointer;
     z-index: 999999;
-    
+
 }
 
 .progress-bar {
@@ -154,7 +147,7 @@
     background: #009355ed;
 }
 
-.openform{
+.openform {
     position: absolute;
     display: none;
     z-index: 9999999;
@@ -171,6 +164,18 @@
     left: 10%;
 }
 
-.openform:hover{
+.openform:hover {
     opacity: 100;
+    color: white;
+}
+
+.arrow {
+    position: absolute;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.171);
+    z-index: 99999;
+    transition: all 0.5s ease-in-out;
+    left: -55%;
+    transform: rotate(-90deg);
+    width: 80%;
 }
