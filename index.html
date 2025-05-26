@@ -30,7 +30,7 @@
         type="text/css" data-template-style="true" rel="stylesheet" />
 
     <link rel="stylesheet" href="./style.css">
-    
+
 
 
 
@@ -48,7 +48,7 @@
         /*}*/
     </style>
 
-         <header>
+    <header>
         <!--    <div id="message-about" style="display: none;">-->
         <!--        <div class="message-about-body">-->
         <!--          <div>Ваш регион <span class="cw_region"></span>?</div>   <div class="cw_cities-wrap"><button id="button_geo">Да</button> <button id="button_geo_nope">Нет</button></div>-->
@@ -57,67 +57,71 @@
 
 
         <div class="widgetcontainer">
-           <svg title="Свернуть" class="arrow" onclick="collapse(this)" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512" fill="none">
-                <path id="n1" d="M122 55L253.379 186.379C254.55 187.55 256.45 187.55 257.621 186.379L389 55" stroke="white" stroke-width="10" stroke-linecap="round"/>
-                <path id="n2" d="M122 188.5L253.379 319.879C254.55 321.05 256.45 321.05 257.621 319.879L389 188.5" stroke="white" stroke-width="10" stroke-linecap="round"/>
-                <path id="n3" d="M122 322L253.379 453.379C254.55 454.55 256.45 454.55 257.621 453.379L389 322" stroke="white" stroke-width="10" stroke-linecap="round"/>
+            <div class="rel">
+                <div class="arrow" onclick="collapse(this)">
+                    <svg   xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512" fill="none">
+                        <path id="n1" d="M55 122L186.379 253.379C187.55 254.55 187.55 256.45 186.379 257.621L55 389" stroke="white" stroke-width="10" stroke-linecap="round"/>
+                        <path id="n2" d="M188.5 122L319.879 253.379C321.05 254.55 321.05 256.45 319.879 257.621L188.5 389" stroke="white" stroke-width="10" stroke-linecap="round"/>
+                        <path id="n3" d="M322 122L453.379 253.379C454.55 254.55 454.55 256.45 453.379 257.621L322 389" stroke="white" stroke-width="10" stroke-linecap="round"/>
+                    
+                        <style>
+                            #n1 {
+                                animation-name: a1;
+                                animation-duration: 3s;
+                                animation-iteration-count: infinite;
+                                animation-timing-function: linear;
+                            }
+                    
+                            #n2 {
+                                animation-name: a1;
+                                animation-duration: 3s;
+                                animation-iteration-count: infinite;
+                                animation-timing-function: linear;
+                                animation-delay: 1s;
+                            }
+                    
+                            #n3 {
+                                animation-name: a1;
+                                animation-duration: 3s;
+                                animation-iteration-count: infinite;
+                                animation-timing-function: linear;
+                                animation-delay: 2s;
+                            }
+                    
+                            @keyframes a1 {
+                                0% {opacity: 1}
+                                50% {opacity: 0}
+                                70% {opacity: 1}
+                                100% {opacity: 1}
+                            }
+                        </style>
+                    </svg>
+                </div>
                 
-                <style>
-                
-                #n1{
-                animation-name: a1;
-                animation-duration: 3s;
-                animation-iteration-count: infinite;
-                animation-timing-function: linear;
-                }
-                
-                #n2{
-                animation-name: a1;
-                animation-duration: 3s;
-                animation-iteration-count: infinite;
-                animation-timing-function: linear;
-                animation-delay: 1s;
-                }
-                
-                #n3{
-                animation-name: a1;
-                animation-duration: 3s;
-                animation-iteration-count: infinite;
-                animation-timing-function: linear;
-                animation-delay: 2s;
-                
-                }
-                
-                @keyframes a1 {
-                0% {opacity:1}
-                50% {opacity:0}
-                70% {opacity:1}
-                100% {opacity:1}
-                }
-                
-                </style>
-                </svg>
-            <div class="widgetvideo" data-open="close">
-            
-            <div class="progress-container" id="progress-container">
-                <div class="progress-bar" id="progress-bar"></div>
+                <div class="widgetvideo" style="width: 100%; height:100%;" data-open="close">
+
+                    <div class="progress-container" id="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="buttons">
+                        <div class="krestik" data-open="close" title="Закрыть"></div>
+                        <div class="pause" onclick="pauseVideo(this)" data-flag="play" title="Пауза"></div>
+                        <div class="volume" onclick="volumeChange(this)" data-flag="off" title="Включить звук"></div>
+                        <div class="reset" title="Сначала" onclick="reset()"></div>
+                    </div>
+
+
+                    <video id="video" width="100%" height="100%" loop="" autoplay="" muted="true" preload="auto"
+                        controlslist="nodownload" style="object-fit: cover;">
+                        <source src="./mixkit-young-mother-with-her-little-daughter-decorating-a-christmas-tree-39745-full-hd.mp4" type="video/mp4" width="100%" height="100%">
+                    </video>
+
+                    <a class="openform" href="https://b24-rn51yf1.bitrix24.site/crm_form_dp3ai/"
+                        onmousemove="this.style.opacity = '90%'" onmouseleave="this.style.opacity = '50%'">Подробнее</a>
+                </div>
             </div>
-            <div class="buttons">
-                <div class="krestik" data-open="close" title="Закрыть"></div>
-                <div class="pause" onclick="pauseVideo(this)" data-flag="play" title="Пауза"></div>
-                <div class="volume" onclick="volumeChange(this)" data-flag="off" title = "Включить звук"></div>
-                <div class="reset" title="Сначала" onclick="reset()"></div>
-            </div>
-            
-            
-            <video id="video" width="100%" height="100%" loop="" autoplay="" muted="true" preload="auto" controlslist="nodownload" style="object-fit: cover;">
-                <source src="./testwidget.webm" type="video/webm" width="100%" height="100%">
-            </video>
-          
-            <a class="openform" href="https://b24-rn51yf1.bitrix24.site/crm_form_dp3ai/" onmousemove="this.style.opacity = '90%'" onmouseleave="this.style.opacity = '50%'">Подробнее</a>
         </div>
-        </div>
-        
+
         <div id="message-about-cookie" style="display: none;">
             <div class="container">
                 <div class="row">
@@ -447,17 +451,18 @@
                     <div class="header__slider">
                         <div>
                             <div class="content container">
-                                <a href="./products/ochistnye-sooruzheniya/napornyy-filtr/index.html" class="title slider__item-text wow fadeInLeft" data-wow-delay="2s">
+                                <a href="./products/ochistnye-sooruzheniya/napornyy-filtr/index.html"
+                                    class="title slider__item-text wow fadeInLeft" data-wow-delay="2s">
                                     Напорные фильтры FloTenk-NF <span>Емкости и резервуары<br>
                                         под давлением</span> </a>
                                 <a class="btn-header wow fadeInLeft" data-wow-delay="2s"
                                     href="products/index.html">Выбрать продукцию</a>
                             </div>
                         </div>
-                        <div class="videobg swiper-container" >
+                        <div class="videobg swiper-container">
                             <video width="100%" height="100%" autoplay loop muted preload style="object-fit: cover;">
                                 <source src="./test__2.webm" type="video/webm" width="100%" height="100%">
-                               </video>
+                            </video>
                         </div>
                         <!-- <div class="swiper-container main-slider loading">
         <div class="swiper-wrapper">
@@ -548,8 +553,8 @@
             </div>
         </div>
     </div>
-    
-   
+
+
 
     <main>
         <div class="container-fluid container-bg pt-title">

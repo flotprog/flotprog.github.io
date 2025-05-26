@@ -1,13 +1,15 @@
 .widgetcontainer {
     display: flex;
     align-items: center;
-    width: 130px;
-    height: 200px;
+    width: 125px;
+    height: 222px;
     position: fixed;
     bottom: 2%;
     right: 2%;
     z-index: 9999;
     transform-origin: bottom right;
+    transform-box: fill-box;
+    transition: all 0.5s ease-in-out;
 }
 
 
@@ -19,13 +21,12 @@
     position: absolute;
     border: 2px solid #009355ed;
     border-radius: 15px;
-    width: 125px;
-    height: 190px;
     z-index: 9999;
     right: 0;
     bottom: 0;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
+    transform-origin: bottom right;
     overflow: hidden;
 }
 
@@ -100,17 +101,16 @@
     display: block;
     height: 65px;
     width: 17px;
-    top: 5%;
-    right: 5%;
-
+    right: 1%;
+    top: 1%;
     opacity: 0%;
     transition: all 0.5s ease;
     z-index: 9999;
 }
 
-.widgetvideo:hover .buttons {
+/* .widgetvideo:hover .buttons {
     opacity: 100%;
-}
+} */
 
 .widgetvideo:hover .progress-widget {
     opacity: 100%;
@@ -162,6 +162,7 @@
     border-radius: 20px;
     bottom: 5%;
     left: 10%;
+    font-size: 10px;
 }
 
 .openform:hover {
@@ -171,12 +172,23 @@
 
 .arrow {
     position: absolute;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 165px;
     background-color: rgba(0, 0, 0, 0.411);
     z-index: 99999;
     transition: all 0.5s ease-in-out;
-    left: -55%;
-    transform: rotate(-90deg);
-    width: 80%;
+    height: 80%;
     cursor: pointer;
+}
+
+.rel{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

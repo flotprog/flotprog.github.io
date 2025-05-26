@@ -3,13 +3,21 @@ var run = false
 var progressbar = document.querySelector(".progress-container")
 var buttons = document.querySelector('.buttons')
 var openform = document.querySelector('.openform')
-var arrow = document.querySelector('.arrow')
+var widgetcontainer = document.querySelector('.widgetcontainer')
+
+
 const video = document.querySelector('#video');
 const progressContainer = document.getElementById('progress-container');
 const progressBar = document.getElementById('progress-bar');
 
+if (document.querySelector('.arrow')) {
+    var arrow = document.querySelector('.arrow')
+    arrow.style.left = `${-arrow.clientWidth}px`
+} else {
+    var arrow = document.querySelector('.arrowleft')
+}
 
-
+var widthprogressBar = progressBar.offsetWidth
 
 
 widget.addEventListener('click', function (e) {
@@ -26,13 +34,11 @@ var isWidgetVisible = true
 
 function collapse(a) {
     if (isWidgetVisible) {
-        widget.style.transform = 'translateX(150%)'; // Скрываем виджет вправо
-        arrow.style.transform = 'translateX(150%) rotate(90deg) '; // Двигаем кнопку влево к границе экрана
-
+        widgetcontainer.style.right = `${-widget.clientWidth - 4}px`
+        arrow.childNodes[1].style.transform = 'rotate(180deg)'
     } else {
-        widget.style.transform = 'translateX(0)'; // Показываем виджет
-        arrow.style.transform = 'translateX(0) rotate(-90deg) '; // Возвращаем кнопку на место
-
+        widgetcontainer.style.right = "2%"
+        arrow.childNodes[1].style.transform = 'rotate(0deg)'
     }
     isWidgetVisible = !isWidgetVisible; // Переключаем состояние видимости
 }
@@ -56,17 +62,29 @@ krestik.addEventListener('click', function () {
 })
 
 
-function open(widgetp) {
+function open(widgetp, width=widthprogressBar) {
     if (widgetp.dataset.open == 'close') {
         arrow.style.opacity = '0';
+        
         setTimeout(() => {
             widgetp.dataset.open = "open"
-            widgetp.style.width = "312.5px"
-            widgetp.style.height = "475px"
-            buttons.style.transform = "scale(1.5) translateY(10px)"
-            progressbar.style.height = "8px"
+            /* widgetp.style.width = "312.5px"
+            widgetp.style.height = "475px" */
+            widgetp.style.transform = "scale(2)"
+
+            buttons.style.transform = "scale(0.7)"
+            buttons.style.opacity = 100
+
+            progressBar.style.height = "8px"
+            progressBar.style.width = width * 2
+
+            progressContainer.style.height = "8px"
+
             openform.style.display = 'flex'
             openform.style.opacity = "50%"
+            
+
+
         }, 500)
 
         
@@ -77,15 +95,23 @@ function open(widgetp) {
 }
 
 
-function close(widgetp) {
+function close(widgetp, width=widthprogressBar) {
     if (widgetp.dataset.open == "open") {
+
         widgetp.dataset.open = "close"
-        widgetp.style.width = "125px"
-        widgetp.style.height = "190px"
-        buttons.style.transform = "scale(1) translateY(0)"
+        widgetp.style.transform = "scale(1)"
+
+        buttons.style.transform = "scale(0.7)"
+        buttons.style.opacity = 0
+
         progressbar.style.height = "3px"
+
+        progressBar.style.height = "3px"
+        progressBar.style.width = width / 2
+
         openform.style.display = 'none'
         openform.style.opacity = 0
+
         setTimeout(() => {
             arrow.style.opacity = '100%';
         }, 1000)
@@ -157,11 +183,12 @@ progressContainer.addEventListener('mousedown', (event) => {
 
 progressContainer.addEventListener('mousemove', (event) => {
     if (isDragging) {
-        updateVideoTime(event);
-
         const newWidth = event.clientX - progressBar.getBoundingClientRect().left;
 
-        progressBar.style.width = newWidth + 'px';
+        progressBar.style.width = newWidth / 2 + 'px';
+        updateVideoTime(event);
+
+        
 
 
     }
@@ -175,8 +202,15 @@ document.addEventListener('mouseup', () => {
 function updateVideoTime(event) {
     const rect = progressContainer.getBoundingClientRect();
     const clickPosition = event.clientX - rect.left;
-    const percentage = clickPosition / progressContainer.offsetWidth;
-    video.currentTime = percentage * video.duration;
+    if (widget.dataset.open == "open"){
+        const percentage = clickPosition / (progressContainer.offsetWidth * 2);
+        video.currentTime = percentage * video.duration;
+    } else {
+        const percentage = clickPosition / progressContainer.offsetWidth
+        video.currentTime = percentage * video.duration;
+    }
+    
+    
 }
 
 
